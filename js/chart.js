@@ -1,60 +1,65 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
 
-<form>
-  <label><input type="radio" name="dataset" value="California" checked> California</label>
-  <label><input type="radio" name="dataset" value="Applicants"> Applicants</label>
-  <label><input type="radio" name="dataset" value="Accepted"> Accepted</label>
-</form>
-<link rel="stylesheet" href="style.css">
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="d3.tip.js"></script>
-<script>
-
-var width = 960,
+var width = 500,
     height = 500,
     radius = Math.min(width, height) / 2;
 
 var color = d3.scale.category20();
 
 var pie = d3.layout.pie()
-    .value(function(d) { return d.California; })
+    .value(function(d) { return d.dem13; })
     .sort(null);
 
 var arc = d3.svg.arc()
     .innerRadius(radius - 100)
     .outerRadius(radius - 20);
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#chart").append("svg")
     .attr("width", width)
     .attr("height", height)
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 var ids = ["AA","AI","AS","LA","WH"];
-var labels = ["African American","American Indian","Asian","Latino","White"];
+var labels = ["African American","American Indian","Asian","Hispanic","White"];
 
 var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset(function() {
-  return [this.getBBox().height / 2, -this.getBBox().width / 2]
+  return [this.getBBox().height / 2, 0]
 })
   .html(function(d, i) {
-    return "<strong>" + labels[i] + ":</strong> <span style='color:red'>" + getCurrent(d) + "%</span>";
+    return "<strong>" + labels[i] + "</strong> " + getCurrent(d);
   })
   
-var current = "California";
+var current = "dem13";
 
 function getCurrent(d) {
-  if(current == "California") {
-    return d.data.California;
+  if(current == "dem13") {
+    return "<span class='badge'>" + d.data.dem13 + "%</span></br><small>of California residents in 2013</small>";
   }
-  else if(current == "Applicants") {
-    return d.data.Applicants;
+  else if(current == "app13") {
+    return "<span class='badge'>" + d.data.app13 + "%</span></br><small>of UC applicants in 2013</small>";
   }
-  else if(current == "Accepted") {
-    return d.data.Accepted;
+  else if(current == "acc13") {
+    return "<span class='badge'>" + d.data.acc13 + "%</span></br><small>of UC applicants accepted in 2013</small>";
+  }
+  else if(current == "dem90") {
+    return "<span class='badge'>" + d.data.dem90 + "%</span></br><small>of California residents in 1990</small>";
+  }
+  else if(current == "app90") {
+    return "<span class='badge'>" + d.data.app90 + "%</span></br><small>UC applicants in 1990</small>";
+  }
+  else if(current == "acc90") {
+    return "<span class='badge'>" + d.data.acc90 + "%</span></br><small>UC applicants accepted in 1990</small>";
+  }
+  else if(current == "dem00") {
+    return "<span class='badge'>" + d.data.dem00 + "%</span></br><small>of California residents in 2000</small>";
+  }
+  else if(current == "app00") {
+    return "<span class='badge'>" + d.data.app00 + "%</span></br><small>UC applicants in 2000</small>";
+  }
+  else if(current == "acc00") {
+    return "<span class='badge'>" + d.data.acc00 + "%</span></br><small>UC applicants accepted in 2000</small>";
   }
 }
 
@@ -97,5 +102,3 @@ function arcTween(a) {
     return arc(i(t));
   };
 }
-
-</script>
