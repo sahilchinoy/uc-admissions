@@ -47,19 +47,19 @@ function getCurrent(d) {
     return "<span class='badge'>" + d.data.dem90 + "%</span></br><small>of California residents in 1990</small>";
   }
   else if(current == "app90") {
-    return "<span class='badge'>" + d.data.app90 + "%</span></br><small>UC applicants in 1990</small>";
+    return "<span class='badge'>" + d.data.app90 + "%</span></br><small>of UC applicants in 1990</small>";
   }
   else if(current == "acc90") {
-    return "<span class='badge'>" + d.data.acc90 + "%</span></br><small>UC applicants accepted in 1990</small>";
+    return "<span class='badge'>" + d.data.acc90 + "%</span></br><small>of UC applicants accepted in 1990</small>";
   }
   else if(current == "dem00") {
     return "<span class='badge'>" + d.data.dem00 + "%</span></br><small>of California residents in 2000</small>";
   }
   else if(current == "app00") {
-    return "<span class='badge'>" + d.data.app00 + "%</span></br><small>UC applicants in 2000</small>";
+    return "<span class='badge'>" + d.data.app00 + "%</span></br><small>of UC applicants in 2000</small>";
   }
   else if(current == "acc00") {
-    return "<span class='badge'>" + d.data.acc00 + "%</span></br><small>UC applicants accepted in 2000</small>";
+    return "<span class='badge'>" + d.data.acc00 + "%</span></br><small>of UC applicants accepted in 2000</small>";
   }
 }
 
@@ -84,7 +84,7 @@ d3.csv("data.csv", function(error, data) {
     current = value;
     pie.value(function(d) { return d[value]; }); // change the value function
     path = path.data(pie); // compute the new angles
-    path.transition().duration(1000).attrTween("d", arcTween); // redraw the arcs
+    path.transition().duration(2000).attrTween("d", arcTween); // redraw the arcs
   }
 });
 
