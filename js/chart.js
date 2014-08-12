@@ -16,7 +16,7 @@ var pie = d3.layout.pie()
     .sort(null);
 
 var arc = d3.svg.arc()
-    .innerRadius(radius - 100)
+    .innerRadius(1/2 * radius)
     .outerRadius(radius);
 
 var svg = d3.select("#chart").append("svg")
