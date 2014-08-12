@@ -22,6 +22,48 @@ var svg = d3.select("#chart").append("svg")
 var ids = ["AA","AI","AS","LA","WH"];
 var labels = ["African American","American Indian","Asian","Hispanic","White"];
 
+var svg2 = d3.select("#legend")
+  .append("svg")
+  .attr("x", 20)
+  .attr("width", width)
+  .attr("height", 100);
+
+var legend = svg2.append("g")
+  .attr("class", "legend")
+  .attr("x", 0)
+  .attr("y", 0)
+  .attr("height", 100)
+  .attr("width", 100);
+
+legend.selectAll('g').data(labels)
+  .enter()
+  .append('g')
+  .each(function(d, i) {
+    var g = d3.select(this);
+
+    g.append("rect")
+      .attr("x", 26 + i*width/5)
+      .attr("y", 1)
+      .attr("width", 20)
+      .attr("height", 20)
+      .attr("stroke","white")
+      .attr("stroke-width", 1)
+      .style("fill", color.range()[i]);
+    
+    g.append("text")
+      //.attr("dx", 22+ i*width/5)
+      //.attr("x", 0)
+      .attr("dy", 35)
+      .style("text-anchor","left")
+      .attr("transform","translate(" + (45+ i*width/5) + ", 0)rotate(25)")
+      //.attr("transform","rotate(10)")
+      //.attr("height",30)
+      //.attr("width",100)
+      .style("fill", "black")
+      .style("font-size",10)
+      .text(labels[i]);
+  });
+
 var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset(function() {
@@ -167,8 +209,6 @@ d3.csv("data.csv", function(error, data) {
 
   d3.selectAll("input")
       .on("change", change);
-
-   
  
 });
 
@@ -200,8 +240,10 @@ function changeType(newType) {
   change();
 }
 
+var interval;
+
 function animate() {
-  setInterval(animateHelper,2000);
+  interval = setInterval(animateHelper,2000);
 }
 
 var counter = 0;
@@ -222,7 +264,7 @@ function animateHelper() {
     changeYear(2013);
   }
   else if(counter == 4) {
-    return true;
+    clearInterval(interval);
   }
   counter += 1;
 }
