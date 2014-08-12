@@ -9,3 +9,8 @@
   color: #fff;
   border-radius: 2px;
 }
+
+label {
+	font-weight: normal;
+	font-size: 10pt;
+}

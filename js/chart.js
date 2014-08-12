@@ -1,6 +1,7 @@
 
 var width = 400,
     height = 400,
+    vmargin = 80,
     radius = Math.min(width, height) / 2;
 
 var color = d3.scale.category20();
@@ -11,13 +12,13 @@ var pie = d3.layout.pie()
 
 var arc = d3.svg.arc()
     .innerRadius(radius - 100)
-    .outerRadius(radius - 20);
+    .outerRadius(radius);
 
 var svg = d3.select("#chart").append("svg")
     .attr("width", width)
-    .attr("height", height)
+    .attr("height", height + vmargin)
   .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    .attr("transform", "translate(" + width / 2 + "," + (height + vmargin) / 2 + ")");
 
 var ids = ["AA","AI","AS","LA","WH"];
 var labels = ["African American","American Indian","Asian","Hispanic","White"];
@@ -26,7 +27,7 @@ var svg2 = d3.select("#legend")
   .append("svg")
   .attr("x", 20)
   .attr("width", width)
-  .attr("height", 100);
+  .attr("height", 70);
 
 var legend = svg2.append("g")
   .attr("class", "legend")
@@ -42,7 +43,7 @@ legend.selectAll('g').data(labels)
     var g = d3.select(this);
 
     g.append("rect")
-      .attr("x", 26 + i*width/5)
+      .attr("x", 6 + i*width/5)
       .attr("y", 1)
       .attr("width", 20)
       .attr("height", 20)
@@ -53,9 +54,9 @@ legend.selectAll('g').data(labels)
     g.append("text")
       //.attr("dx", 22+ i*width/5)
       //.attr("x", 0)
-      .attr("dy", 35)
+      .attr("dy", 40)
       .style("text-anchor","left")
-      .attr("transform","translate(" + (45+ i*width/5) + ", 0)rotate(25)")
+      .attr("transform","translate(" + (25+ i*width/5) + ", 0)rotate(25)")
       //.attr("transform","rotate(10)")
       //.attr("height",30)
       //.attr("width",100)
@@ -85,6 +86,30 @@ function getCurrent(d) {
     }
     else if(type == 'acc') {
       return "<span class='badge'>" + d.data.acc13 + "%</span></br><small>of UC applicants accepted in 2013</small>";
+    }
+  }
+
+  else if(year == 2010) {
+    if(type == 'dem') {
+      return "<span class='badge'>" + d.data.dem10 + "%</span></br><small>of California residents in 2010</small>";
+    }
+    else if(type == 'app') {
+      return "<span class='badge'>" + d.data.app10 + "%</span></br><small>of UC applicants in 2010</small>";
+    }
+    else if(type == 'acc') {
+      return "<span class='badge'>" + d.data.acc10 + "%</span></br><small>of UC applicants accepted in 2010</small>";
+    }
+  }
+
+  else if(year == 2005) {
+    if(type == 'dem') {
+      return "<span class='badge'>" + d.data.dem05 + "%</span></br><small>of California residents in 2005</small>";
+    }
+    else if(type == 'app') {
+      return "<span class='badge'>" + d.data.app05 + "%</span></br><small>of UC applicants in 2005</small>";
+    }
+    else if(type == 'acc') {
+      return "<span class='badge'>" + d.data.acc05 + "%</span></br><small>of UC applicants accepted in 2005</small>";
     }
   }
 
@@ -143,6 +168,34 @@ function value(d) {
       }
     }
 
+    else if(year == 2010) {
+      $('.year').removeClass('active');
+      $('#y2010').addClass('active');
+      if(type == 'dem') {
+        return d['dem10'];
+      }
+      else if(type == 'app') {
+        return d['app10'];
+      }
+      else if(type == 'acc') {
+        return d['acc10'];
+      }
+    }
+
+    else if(year == 2005) {
+      $('.year').removeClass('active');
+      $('#y2005').addClass('active');
+      if(type == 'dem') {
+        return d['dem05'];
+      }
+      else if(type == 'app') {
+        return d['app05'];
+      }
+      else if(type == 'acc') {
+        return d['acc05'];
+      }
+    }
+
     else if(year == 2000) {
       $('.year').removeClass('active');
       $('#y2000').addClass('active');
@@ -191,7 +244,7 @@ function value(d) {
     //current = value;
     pie.value(function(d) { return value(d); }); // change the value function
     path = path.data(pie); // compute the new angles
-    path.transition().duration(2000).attrTween("d", arcTween); // redraw the arcs
+    path.transition().duration(1500).attrTween("d", arcTween); // redraw the arcs
   }
 
 d3.csv("data.csv", function(error, data) {
@@ -249,9 +302,7 @@ function animate() {
 var counter = 0;
 
 function animateHelper() {
-  console.log('here 2');
   if(counter == 0) {
-    console.log('here 3');
     changeYear(1990);
   }
   else if(counter == 1) {
@@ -261,9 +312,16 @@ function animateHelper() {
     changeYear(2000);
   }
   else if(counter == 3) {
-    changeYear(2013);
+    changeYear(2005);
   }
   else if(counter == 4) {
+    changeYear(2010);
+  }
+  else if(counter == 5) {
+    changeYear(2013);
+  }
+  else if(counter == 6) {
+    counter = 0;
     clearInterval(interval);
   }
   counter += 1;
