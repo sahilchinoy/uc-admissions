@@ -1,7 +1,12 @@
+var window_width = $(window).width();
+var width = 400;
 
-var width = 400,
-    height = 400,
-    vmargin = 80,
+if(window_width < 400) {
+  width = window_width - 30;
+}
+    
+var height = width,
+    vmargin = 60,
     radius = Math.min(width, height) / 2;
 
 var color = d3.scale.category20();
@@ -43,7 +48,7 @@ legend.selectAll('g').data(labels)
     var g = d3.select(this);
 
     g.append("rect")
-      .attr("x", 6 + i*width/5)
+      .attr("x", (width/20) + 6 + i*width/5)
       .attr("y", 1)
       .attr("width", 20)
       .attr("height", 20)
@@ -56,7 +61,7 @@ legend.selectAll('g').data(labels)
       //.attr("x", 0)
       .attr("dy", 40)
       .style("text-anchor","left")
-      .attr("transform","translate(" + (25+ i*width/5) + ", 0)rotate(25)")
+      .attr("transform","translate(" + ((width/20) + 25+ i*width/5) + ", 0)rotate(25)")
       //.attr("transform","rotate(10)")
       //.attr("height",30)
       //.attr("width",100)
