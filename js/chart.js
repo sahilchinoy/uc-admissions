@@ -1,12 +1,21 @@
 var window_width = $(window).width();
+var window_height = $(window).height();
+
 var width = 400;
 
 if(window_width < 400) {
   width = window_width - 30;
 }
     
-var height = width,
-    vmargin = 60,
+var height = width;
+
+if(window_height < height) {
+  height = window_height;
+  width = height;
+}
+    
+
+var vmargin = 60,
     radius = Math.min(width, height) / 2;
 
 var color = d3.scale.category20();
