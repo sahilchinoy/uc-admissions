@@ -2,6 +2,10 @@
 	float:left;
 }
 
+#chart2 {
+	/*float:right;*/
+}
+
 .d3-tip {
   line-height: 1;
   padding: 12px;
