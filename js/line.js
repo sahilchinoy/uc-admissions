@@ -1,6 +1,8 @@
+var container_width = $('#container').width();
+
 var graph = new Rickshaw.Graph( {
 	element: document.getElementById("line"),
-	width: window_width - 170,
+	width: container_width,
 	height: 300,
 	padding: {top: 0.02, left: 0.02, right: 0.02, bottom: 0.02},
 	renderer: 'line',

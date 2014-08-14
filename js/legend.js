@@ -49,8 +49,9 @@ legend.selectAll('g').data(labels)
       .attr("dy", 15)
       .style("text-anchor","left")
       .attr("transform","translate(" + (28+ i*window_width/6) + ", 0)rotate(0)")
-      .style("fill", "black")
-      .style("font-size",10)
+      .style("fill", "grey")
+      .style("font-weight", "bold")
+      .style("font-size",11)
       .text(labelChooser()[i]);
   });
 
