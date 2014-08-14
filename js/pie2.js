@@ -6,7 +6,7 @@ var arc2 = d3.svg.arc()
     .innerRadius(1/2 * radius)
     .outerRadius(radius);
 
-var svg2 = d3.select("#chart2").append("svg")
+var svg2 = d3.select("#appPie").append("svg")
     .attr("width", width)
     .attr("height", height + vmargin)
   .append("g")

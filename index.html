@@ -35,7 +35,6 @@
       <h3>Who's applying? <small>California demographics versus applicants and accepted students, 1990&mdash;2013</small></h3>
       
 
-
       <div class="btn-group">
         <button id="yearDropdown" type="button" class="btn btn-sm btn-info dropdown-toggle" data-toggle="dropdown">
           Year <span class="caret"></span>
@@ -57,14 +56,31 @@
       </br>
     </br>
 
+    <div id="legend" style="clear:both;"></div>
+
     
-      <div id="chart" class="col-md-4"><div class="text-center"><h4><span class="label label-primary">California demographics</span></h4></div></div>
-      <div id="chart2" class="col-md-4"><div class="text-center"><h4><span class="label label-primary">UC applicants</span></h4></div></div>
-      <div id="chart3" class="col-md-4"><div class="text-center"><h4><span class="label label-primary">UC applicants accepted</span></h4></div></div>
+      <div class="col-md-4" >
+        <div class="text-center"><h4><span class="label label-primary">California demographics</span></h4></div>
+        <div id="demPie" class="text-center"></div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="text-center"><h4><span class="label label-primary">UC applicants</span></h4></div>
+        <div id="appPie" class="text-center"></div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="text-center"><h4><span class="label label-primary">UC applicants accepted</span></h4></div>
+        <div id="accPie" class="text-center"></div>
+      </div>
+
       <div id="legend" style="clear:both;"></div>
 
       </br>
 
+      <p class="lead">The racial breakdown of UC applicants and admitted students has changed dramatically since 1990, but it's largely kept pace with demographic shifts in California.</p>
+      <p>In 1990, when white people made up 57% of California's population, 50% of the UC's applicants were white. In 2013, only 39% of California's residents were white, and, similarly, only 27% of the UC's applicants were.</p>
+      <p>Recently, more Hispanic students are applying and getting in. Though they made up 26% of California's population in 1990, they represented only 13% of UC applicants. In 2013, Hispanics made up 32% of the UC's applicants.</p>
       <hr>
 
       <h3>Who's getting in? <small>Percentage of UC applicants minus percentage of accepted students, by race</small></h3>
@@ -101,6 +117,7 @@
     <script src="./data/hispanic.js"></script>
     <script src="./data/white.js"></script>
     
+    <script src="./js/main.js"></script>
     <script src="./js/pie1.js"></script>
     <script src="./js/pie2.js"></script>
     <script src="./js/pie3.js"></script>

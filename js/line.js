@@ -1,34 +1,32 @@
-var container_width = $('#container').width();
-
 var graph = new Rickshaw.Graph( {
 	element: document.getElementById("line"),
-	width: container_width,
+	width: container_width - 30,
 	height: 300,
 	padding: {top: 0.02, left: 0.02, right: 0.02, bottom: 0.02},
 	renderer: 'line',
 	series: [
 		{
-			color: 'rgb(141,211,199)',
+			color: color[0],
 			data: black,
 			name: 'Black'
 		},
 		{
-			color: 'rgb(255,255,179)',
+			color: color[1],
 			data: americanIndian,
 			name: 'American Indian'
 		},
 		{
-			color: 'rgb(190,186,218)',
+			color: color[2],
 			data: asian,
 			name: 'Asian'
 		},
 		{
-			color: 'rgb(251,128,114)',
+			color: color[3],
 			data: hispanic,
 			name: 'Hispanic'
 		},
 		{
-			color: 'rgb(128,177,211)',
+			color: color[4],
 			data: white,
 			name: 'White'
 		}
@@ -53,7 +51,7 @@ var y_axis = new Rickshaw.Graph.Axis.Y( {
 var hoverDetail = new Rickshaw.Graph.HoverDetail( {
 	graph: graph,
 	xFormatter: function(x) { return x },
-	yFormatter: function(y) { return (y * 100).toFixed(2) + "%" }
+	yFormatter: function(y) { return "<span class='badge'>" + (y * 100).toFixed(2) + "% </span>" }
 } );
 
 graph.render();

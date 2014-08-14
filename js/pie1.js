@@ -1,10 +1,7 @@
-var window_width = $(window).width();
-var window_height = $(window).height();
+var width = container_width/3 - 50;
 
-var width = 350;
-
-if(window_width < 400) {
-  width = window_width - 30;
+if(container_width < 740) {
+  width = 250;
 }
     
 var height = width;
@@ -17,8 +14,6 @@ if(window_height < height) {
 var vmargin = 60,
     radius = Math.min(width, height) / 2;
 
-var color = ['rgb(141,211,199)','rgb(255,255,179)','rgb(190,186,218)','rgb(251,128,114)','rgb(128,177,211)','rgb(253,180,98)'];
-//var color = ['rgb(127,201,127)','rgb(190,174,212)','rgb(253,192,134)','rgb(255,255,153)','rgb(56,108,176)','rgb(240,2,127)'];
 
 var pie = d3.layout.pie()
     .value(function(d) { return d.dem13; })
@@ -28,7 +23,7 @@ var arc = d3.svg.arc()
     .innerRadius(1/2 * radius)
     .outerRadius(radius);
 
-var svg = d3.select("#chart").append("svg")
+var svg = d3.select("#demPie").append("svg")
     .attr("width", width)
     .attr("height", height + vmargin)
   .append("g")

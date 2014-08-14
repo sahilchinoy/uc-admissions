@@ -2,10 +2,10 @@ var svgLegend;
 
 function drawLegend() {
 
-  window_width = $(window).width();
+  var container_width = $('#container').width();
 
   function labelChooser() {
-  if (window_width < 400) {
+  if (container_width < 700) {
     return ids;
   }
   else {
@@ -20,7 +20,7 @@ function drawLegend() {
 svgLegend = d3.select("#legend")
   .append("svg")
   .attr("x", 20)
-  .attr("width", window_width - 110)
+  .attr("width", container_width)
   .attr("height", 40);
 
 var legend = svgLegend.append("g")
@@ -28,7 +28,7 @@ var legend = svgLegend.append("g")
   .attr("x", 0)
   .attr("y", 0)
   .attr("height", 40)
-  .attr("width", window_width - 110);
+  .attr("width", container_width - 110);
 
 legend.selectAll('g').data(labels)
   .enter()
@@ -37,7 +37,7 @@ legend.selectAll('g').data(labels)
     var g = d3.select(this);
 
     g.append("rect")
-      .attr("x", i*window_width/6)
+      .attr("x", i*container_width/6)
       .attr("y", 1)
       .attr("width", 20)
       .attr("height", 20)
@@ -48,7 +48,7 @@ legend.selectAll('g').data(labels)
     g.append("text")
       .attr("dy", 15)
       .style("text-anchor","left")
-      .attr("transform","translate(" + (28+ i*window_width/6) + ", 0)rotate(0)")
+      .attr("transform","translate(" + (28+ i*container_width/6) + ", 0)rotate(0)")
       .style("fill", "grey")
       .style("font-weight", "bold")
       .style("font-size",11)
