@@ -12,9 +12,6 @@ var svg2 = d3.select("#chart2").append("svg")
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + (height + vmargin) / 2 + ")");
 
-var ids = ["AA","AI","AS","LA","WH"];
-var labels = ["African American","American Indian","Asian","Hispanic","White"];
-
 var path2;
 
 var tip2 = d3.tip()
@@ -23,33 +20,33 @@ var tip2 = d3.tip()
   return [this.getBBox().height / 2, 0]
 })
   .html(function(d, i) {
-    return "<strong>" + labels[i] + "</strong> " + getCurrent2(d);
+    return "<strong>" + labels[i] + "</strong> <span class='badge'>" + (getCurrent2(d) * 100).toFixed(2) + "%</span></br><small>of UC applicants in " + year + "</small>";
   })
   
 
 function getCurrent2(d) {
   if(year == 2013) {
-    return "<span class='badge'>" + d.data.app13 + "%</span></br><small>of UC applicants in 2013</small>";
+    return d.data.app13;
   }
 
   else if(year == 2010) {
-    return "<span class='badge'>" + d.data.app10 + "%</span></br><small>of UC applicants in 2010</small>";
+    return d.data.app10;
   }
 
   else if(year == 2005) {
-    return "<span class='badge'>" + d.data.app05 + "%</span></br><small>of UC applicants in 2005</small>";
+    return d.data.app05;
   }
 
   else if(year == 2000) {
-    return "<span class='badge'>" + d.data.app00 + "%</span></br><small>of UC applicants in 2000</small>";
+    return d.data.app00;
   }
 
   else if(year == 1995) {
-    return "<span class='badge'>" + d.data.app95 + "%</span></br><small>of UC applicants in 1995</small>";
+    return d.data.app95;
   }
 
   else if(year == 1990) {
-    return "<span class='badge'>" + d.data.app90 + "%</span></br><small>of UC applicants in 1990</small>";
+    return d.data.app90;
   }
   
 }
@@ -76,9 +73,7 @@ function value2(d) {
 }
 
   function change2() {
-  	console.log('got here');
     pie2.value(function(d) { return value2(d); }); // change the value function
-    console.log('here2');
     path2 = path2.data(pie2); // compute the new angles
     path2.transition().duration(1500).attrTween("d", arcTween2); // redraw the arcs
   }
@@ -87,7 +82,7 @@ d3.csv("data.csv", function(error, data) {
   path2 = svg2.datum(data).selectAll("path")
       .data(pie2)
     .enter().append("path")
-      .attr("fill", function(d, i) { return color(i); })
+      .attr("fill", function(d, i) { return color[i]; })
       .attr("d", arc2)
       .on("mouseover", tip2.show)
       .on("mouseout",tip2.hide)

@@ -1,0 +1,14 @@
+#line_container {
+        position: relative;
+        width: 400px;
+}
+#line {
+        position: relative;
+        left: 30px;
+}
+#y_axis {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+}

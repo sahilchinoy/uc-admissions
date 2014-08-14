@@ -12,9 +12,6 @@ var svg3 = d3.select("#chart3").append("svg")
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + (height + vmargin) / 2 + ")");
 
-var ids = ["AA","AI","AS","LA","WH"];
-var labels = ["African American","American Indian","Asian","Hispanic","White"];
-
 var path3;
 
 var tip3 = d3.tip()
@@ -23,33 +20,33 @@ var tip3 = d3.tip()
   return [this.getBBox().height / 2, 0]
 })
   .html(function(d, i) {
-    return "<strong>" + labels[i] + "</strong> " + getCurrent3(d);
+    return "<strong>" + labels[i] + "</strong> <span class='badge'>" + (getCurrent3(d) * 100).toFixed(2) + "%</span></br><small>of UC applicants accepted in " + year + "</small>";
   })
   
 
 function getCurrent3(d) {
   if(year == 2013) {
-    return "<span class='badge'>" + d.data.acc13 + "%</span></br><small>of UC applicants accepted in 2013</small>";
+    return d.data.acc13;
   }
 
   else if(year == 2010) {
-    return "<span class='badge'>" + d.data.acc10 + "%</span></br><small>of UC applicants accepted in 2010</small>";
+    return d.data.acc10;
   }
 
   else if(year == 2005) {
-    return "<span class='badge'>" + d.data.acc05 + "%</span></br><small>of UC applicants accepted in 2005</small>";
+    return d.data.acc05;
   }
 
   else if(year == 2000) {
-    return "<span class='badge'>" + d.data.acc00 + "%</span></br><small>of UC applicants accepted in 2000</small>";
+    return d.data.acc00;
   }
 
   else if(year == 1995) {
-    return "<span class='badge'>" + d.data.acc95 + "%</span></br><small>of UC applicants accepted in 1995</small>";
+    return d.data.acc95;
   }
 
   else if(year == 1990) {
-    return "<span class='badge'>" + d.data.acc90 + "%</span></br><small>of UC applicants accepted in 1990</small>";
+    return d.data.acc90;
   }
   
 }
@@ -85,7 +82,7 @@ d3.csv("data.csv", function(error, data) {
   path3 = svg3.datum(data).selectAll("path")
       .data(pie3)
     .enter().append("path")
-      .attr("fill", function(d, i) { return color(i); })
+      .attr("fill", function(d, i) { return color[i]; })
       .attr("d", arc3)
       .on("mouseover", tip3.show)
       .on("mouseout",tip3.hide)

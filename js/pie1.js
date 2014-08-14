@@ -17,7 +17,8 @@ if(window_height < height) {
 var vmargin = 60,
     radius = Math.min(width, height) / 2;
 
-var color = d3.scale.category20();
+var color = ['rgb(141,211,199)','rgb(255,255,179)','rgb(190,186,218)','rgb(251,128,114)','rgb(128,177,211)','rgb(253,180,98)'];
+//var color = ['rgb(127,201,127)','rgb(190,174,212)','rgb(253,192,134)','rgb(255,255,153)','rgb(56,108,176)','rgb(240,2,127)'];
 
 var pie = d3.layout.pie()
     .value(function(d) { return d.dem13; })
@@ -33,45 +34,8 @@ var svg = d3.select("#chart").append("svg")
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + (height + vmargin) / 2 + ")");
 
-var ids = ["AA","AI","AS","LA","WH"];
-var labels = ["African American","American Indian","Asian","Hispanic","White"];
-
-var svgLegend = d3.select("#legend")
-  .append("svg")
-  .attr("x", 20)
-  .attr("width", width)
-  .attr("height", 70);
-
-var legend = svgLegend.append("g")
-  .attr("class", "legend")
-  .attr("x", 0)
-  .attr("y", 0)
-  .attr("height", 100)
-  .attr("width", 100);
-
-legend.selectAll('g').data(labels)
-  .enter()
-  .append('g')
-  .each(function(d, i) {
-    var g = d3.select(this);
-
-    g.append("rect")
-      .attr("x", (width/20) + 6 + i*width/5)
-      .attr("y", 1)
-      .attr("width", 20)
-      .attr("height", 20)
-      .attr("stroke","white")
-      .attr("stroke-width", 1)
-      .style("fill", color.range()[i]);
-    
-    g.append("text")
-      .attr("dy", 40)
-      .style("text-anchor","left")
-      .attr("transform","translate(" + ((width/20) + 25+ i*width/5) + ", 0)rotate(25)")
-      .style("fill", "black")
-      .style("font-size",10)
-      .text(labels[i]);
-  });
+var ids = ["BLK","AI","ASN","HSP","WHT","OTH"];
+var labels = ["Black","American Indian","Asian","Hispanic","White","Other"];
 
 var tip = d3.tip()
   .attr('class', 'd3-tip')
@@ -79,34 +43,33 @@ var tip = d3.tip()
   return [this.getBBox().height / 2, 0]
 })
   .html(function(d, i) {
-    return "<strong>" + labels[i] + "</strong> " + getCurrent(d);
+    return "<strong>" + labels[i] + "</strong> <span class='badge'>" + (getCurrent(d) * 100).toFixed(2) + "%</span></br><small>of California residents in " + year + "</small>";
   })
   
-var current = "dem13";
 
 function getCurrent(d) {
   if(year == 2013) {
-    return "<span class='badge'>" + d.data.dem13 + "%</span></br><small>of California residents in 2013</small>";
+    return d.data.dem13;
   }
 
   else if(year == 2010) {
-    return "<span class='badge'>" + d.data.dem10 + "%</span></br><small>of California residents in 2010</small>";
+    return d.data.dem10;
   }
 
   else if(year == 2005) {
-    return "<span class='badge'>" + d.data.dem05 + "%</span></br><small>of California residents in 2005</small>";
+    return d.data.dem05;
   }
 
   else if(year == 2000) {
-    return "<span class='badge'>" + d.data.dem00 + "%</span></br><small>of California residents in 2000</small>";
+    return d.data.dem00;
   }
 
   else if(year == 1995) {
-    return "<span class='badge'>" + d.data.dem95 + "%</span></br><small>of California residents in 1995</small>";
+    return d.data.dem95;
   }
 
   else if(year == 1990) {
-    return "<span class='badge'>" + d.data.dem90 + "%</span></br><small>of California residents in 1990</small>";
+    return d.data.dem90;
   }
   
 }
@@ -164,7 +127,7 @@ d3.csv("data.csv", function(error, data) {
   path = svg.datum(data).selectAll("path")
       .data(pie)
     .enter().append("path")
-      .attr("fill", function(d, i) { return color(i); })
+      .attr("fill", function(d, i) { return color[i]; })
       .attr("d", arc)
       .attr("id", function(d, i) { return ids[i]; })
       .on("mouseover", tip.show)
@@ -188,7 +151,6 @@ function arcTween(a) {
 }
 
 var year = 2013;
-var type = 'dem';
 
 function changeYear(newYear) {
   year = newYear;

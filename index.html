@@ -15,6 +15,10 @@
     <!-- Bootstrap theme -->
     <link href="./css/bootstrap-theme.min.css" rel="stylesheet">
 
+    <link href="./css/rickshaw.css" rel="stylesheet">
+
+    <link href="./css/line.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
     <link href="./css/custom.css" rel="stylesheet">
 
@@ -28,8 +32,8 @@
 
       <hr>
 
-      <h3>Who's applying? <small>California demographics versus applicants and accepted students</small></h3>
-      </br>
+      <h3>Who's applying? <small>California demographics versus applicants and accepted students, 1990&mdash;2013</small></h3>
+      
 
       <div class="btn-group">
         <button id="yearDropdown" type="button" class="btn btn-sm btn-info dropdown-toggle" data-toggle="dropdown">
@@ -61,6 +65,18 @@
 
       <hr>
 
+      <h3>Who's getting in? <small>Percentage of UC applicants minus percentage of accepted students, by race</small></h3>
+    </br>
+
+      <div id="line_container">
+        <div id="y_axis"></div>
+        <div id="line"></div>
+      </div>
+
+      <hr>
+
+      
+
 <p class="small disabled">Made by <a href="http://about.me/sahil.chinoy">Sahil Chinoy</a></p>
 
     </div> <!-- /container -->
@@ -69,14 +85,27 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="./js/rickshaw.min.js"></script>
     <script src="./js/d3.tip.js"></script>
-    <script src="./js/chart.js"></script>
+
+    <script src="./data/asian.js"></script>
+    <script src="./data/ai.js"></script>
+    <script src="./data/black.js"></script>
+    <script src="./data/hispanic.js"></script>
+    <script src="./data/white.js"></script>
+    
+    <script src="./js/pie1.js"></script>
     <script src="./js/pie2.js"></script>
     <script src="./js/pie3.js"></script>
+    <script src="./js/legend.js"></script>
+    <script src="./js/line.js"></script>
+
+
 
   </body>
 
