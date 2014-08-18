@@ -1,4 +1,4 @@
-var data = {
+var barData = {
     "y14" : [ 
         {
             key: "White",

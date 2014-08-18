@@ -1,8 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Serif|PT+Serif:b|PT+Serif:i|PT+Sans|PT+Sans:b);
 
-p:not(.lead) {
+/*p:not(.lead) {
 	font-family: 'PT Serif';
-}
+}*/
 
 
 label {
@@ -11,5 +11,13 @@ label {
 }
 
 #barChart svg {
-    height: 500px;
+    height: 400px;
+}
+
+#lineChart svg {
+    height: 400px;
+}
+
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+    content: " \25B4\25BE" 
 }

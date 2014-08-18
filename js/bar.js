@@ -15,7 +15,7 @@ function tooltipContent(series,type,data) {
         ending = 'of UC applicants accepted for ';
     }
     
-    return '<strong>' + series + '</strong> <span class="badge">' + data + '%</span></br><small> ' + ending + year + '</small>';
+    return '<strong>' + series + '</strong> <span class="badge">' + data + '</span></br><small> ' + ending + year + '</small>';
 }
 
 nv.addGraph(function() {
@@ -27,12 +27,15 @@ nv.addGraph(function() {
         .showLegend(false);
     
     
+    chart.yAxis
+        .axisLabel('Percent')
+        .tickFormat(function(d) { return d.toFixed(1) + '%' } );
     
     //chart.multibar.stacked(true); // default to stacked
     chart.showControls(false); // don't show controls
 
     d3.select('#barChart svg')
-        .datum(data.y14)
+        .datum(barData.y14)
       .transition().duration(5000).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -49,27 +52,27 @@ function changeYear(newYear) {
     
     if(year == 2014) {
         $('#y14').addClass('active');
-        var newData = data.y14;
+        var newData = barData.y14;
     }
     else if(year == 2010) {
         $('#y10').addClass('active');
-        var newData = data.y10;
+        var newData = barData.y10;
     }
     else if(year == 2005) {
         $('#y10').addClass('active');
-        var newData = data.y05;
+        var newData = barData.y05;
     }
     else if(year == 2000) {
         $('#y00').addClass('active');
-        var newData = data.y00;
+        var newData = barData.y00;
     }
     else if(year == 1995) {
         $('#y95').addClass('active');
-        var newData = data.y95;
+        var newData = barData.y95;
     }
     else if(year == 1990) {
         $('#y90').addClass('active');
-        var newData = data.y90;
+        var newData = barData.y90;
     }
     
     d3.select('#barChart svg')

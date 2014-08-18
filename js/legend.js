@@ -1,5 +1,6 @@
-var ids = ["BLK","AI","ASN","HSP","WHT","OTH"];
-var labels = ["Black","American Indian","Asian","Hispanic","White","Other"];
+var ids = ["WHT","HSP","ASN","BLK","AI","OTH"];
+
+var labels = ["White","Hispanic","Asian","Black","American Indian","Other"];
 
 var svgLegend;
 
