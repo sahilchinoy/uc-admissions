@@ -1,5 +1,5 @@
 var pie3 = d3.layout.pie()
-    .value(function(d) { return d.acc13; })
+    .value(function(d) { return d.acc14; })
     .sort(null);
 
 var arc3 = d3.svg.arc()
@@ -20,38 +20,15 @@ var tip3 = d3.tip()
   return [this.getBBox().height / 2, 0]
 })
   .html(function(d, i) {
-    return "<strong>" + labels[i] + "</strong> <span class='badge'>" + (getCurrent3(d) * 100).toFixed(2) + "%</span></br><small>of UC applicants accepted in " + year + "</small>";
+    return "<strong>" + labels[i] + "</strong> <span class='badge'>" + (getCurrent(d,'acc') * 100).toFixed(2) + "%</span></br><small>of UC applicants accepted for " + year + "</small>";
   })
   
 
-function getCurrent3(d) {
-  if(year == 2013) {
-    return d.data.acc13;
-  }
-
-  else if(year == 2010) {
-    return d.data.acc10;
-  }
-
-  else if(year == 2005) {
-    return d.data.acc05;
-  }
-
-  else if(year == 2000) {
-    return d.data.acc00;
-  }
-
-  else if(year == 1995) {
-    return d.data.acc95;
-  }
-
-  else if(year == 1990) {
-    return d.data.acc90;
-  }
-  
-}
-
 function value3(d) {
+  if(year == 2014) {
+     return d['acc14'];
+  }
+
 	if(year == 2013) {
 	   return d['acc13'];
 	}

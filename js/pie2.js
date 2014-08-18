@@ -1,5 +1,5 @@
 var pie2 = d3.layout.pie()
-    .value(function(d) { return d.app13; })
+    .value(function(d) { return d.app14; })
     .sort(null);
 
 var arc2 = d3.svg.arc()
@@ -20,39 +20,14 @@ var tip2 = d3.tip()
   return [this.getBBox().height / 2, 0]
 })
   .html(function(d, i) {
-    return "<strong>" + labels[i] + "</strong> <span class='badge'>" + (getCurrent2(d) * 100).toFixed(2) + "%</span></br><small>of UC applicants in " + year + "</small>";
+    return "<strong>" + labels[i] + "</strong> <span class='badge'>" + (getCurrent(d,'app') * 100).toFixed(2) + "%</span></br><small>of UC applicants for " + year + "</small>";
   })
   
-
-function getCurrent2(d) {
-  if(year == 2013) {
-    return d.data.app13;
-  }
-
-  else if(year == 2010) {
-    return d.data.app10;
-  }
-
-  else if(year == 2005) {
-    return d.data.app05;
-  }
-
-  else if(year == 2000) {
-    return d.data.app00;
-  }
-
-  else if(year == 1995) {
-    return d.data.app95;
-  }
-
-  else if(year == 1990) {
-    return d.data.app90;
-  }
-  
-}
-
 function value2(d) {
-	if(year2 == 2013) {
+  if(year2 == 2014) {
+     return d['app14'];
+  }
+	else if(year2 == 2013) {
 	   return d['app13'];
 	}
 	else if(year2 == 2010) {
@@ -103,7 +78,7 @@ function arcTween2(a) {
   };
 }
 
-var year2 = 2013;
+var year2 = 2014;
 var type2 = 'app';
 
 function changeYear2(newYear) {

@@ -1,20 +1,15 @@
-#chart {
-	float:left;
+@import url(http://fonts.googleapis.com/css?family=PT+Serif|PT+Serif:b|PT+Serif:i|PT+Sans|PT+Sans:b);
+
+p:not(.lead) {
+	font-family: 'PT Serif';
 }
 
-#chart2 {
-	/*float:right;*/
-}
-
-.d3-tip {
-  line-height: 1;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-}
 
 label {
 	font-weight: normal;
 	font-size: 10pt;
+}
+
+#barChart svg {
+    height: 500px;
 }

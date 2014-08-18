@@ -16,7 +16,7 @@ var vmargin = 60,
 
 
 var pie = d3.layout.pie()
-    .value(function(d) { return d.dem13; })
+    .value(function(d) { return d.dem14; })
     .sort(null);
 
 var arc = d3.svg.arc()
@@ -38,33 +38,93 @@ var tip = d3.tip()
   return [this.getBBox().height / 2, 0]
 })
   .html(function(d, i) {
-    return "<strong>" + labels[i] + "</strong> <span class='badge'>" + (getCurrent(d) * 100).toFixed(2) + "%</span></br><small>of California residents in " + year + "</small>";
+    return "<strong>" + labels[i] + "</strong> <span class='badge'>" + (getCurrent(d,'dem') * 100).toFixed(2) + "%</span></br><small>of California residents in " + year + "</small>";
   })
   
 
-function getCurrent(d) {
-  if(year == 2013) {
-    return d.data.dem13;
+function getCurrent(d,type) {
+  if(year == 2014) {
+    if(type == 'dem') {
+      return d.data.dem14;
+    }
+    else if(type == 'app') {
+      return d.data.app14;
+    }
+    else if(type == 'acc') {
+      return d.data.acc14;
+    }
+  }
+
+  else if(year == 2013) {
+    if(type == 'dem') {
+      return d.data.dem13;
+    }
+    else if(type == 'app') {
+      return d.data.app13;
+    }
+    else if(type == 'acc') {
+      return d.data.acc13;
+    }
   }
 
   else if(year == 2010) {
-    return d.data.dem10;
+    if(type == 'dem') {
+      return d.data.dem10;
+    }
+    else if(type == 'app') {
+      return d.data.app10;
+    }
+    else if(type == 'acc') {
+      return d.data.acc10;
+    }
   }
 
   else if(year == 2005) {
-    return d.data.dem05;
+    if(type == 'dem') {
+      return d.data.dem05;
+    }
+    else if(type == 'app') {
+      return d.data.app05;
+    }
+    else if(type == 'acc') {
+      return d.data.acc05;
+    }
   }
 
   else if(year == 2000) {
-    return d.data.dem00;
+    if(type == 'dem') {
+      return d.data.dem00;
+    }
+    else if(type == 'app') {
+      return d.data.app00;
+    }
+    else if(type == 'acc') {
+      return d.data.acc00;
+    }
   }
 
   else if(year == 1995) {
-    return d.data.dem95;
+    if(type == 'dem') {
+      return d.data.dem95;
+    }
+    else if(type == 'app') {
+      return d.data.app95;
+    }
+    else if(type == 'acc') {
+      return d.data.acc95;
+    }
   }
 
   else if(year == 1990) {
-    return d.data.dem90;
+    if(type == 'dem') {
+      return d.data.dem90;
+    }
+    else if(type == 'app') {
+      return d.data.app90;
+    }
+    else if(type == 'acc') {
+      return d.data.acc90;
+    }
   }
   
 }
@@ -72,8 +132,15 @@ function getCurrent(d) {
 var path;
 
 function value(d) {
-  $('#yearDropdown').html(year + ' <span class="caret"></span>');
-    if(year == 2013) {
+  $('#yearDropdown').html('<strong>' + year + ' <span class="caret"></span></strong>');
+
+    if(year == 2014) {
+      $('.year').removeClass('active');
+      $('#y2014').addClass('active');
+      return d['dem14'];
+    }
+
+    else if(year == 2013) {
       $('.year').removeClass('active');
       $('#y2013').addClass('active');
       return d['dem13'];
@@ -145,7 +212,7 @@ function arcTween(a) {
   };
 }
 
-var year = 2013;
+var year = 2014;
 
 function changeYear(newYear) {
   year = newYear;
@@ -155,9 +222,34 @@ function changeYear(newYear) {
 } 
 
 var interval;
+var animated = false;
+
+function setButton(state) {
+  var button = $('#animateBtn');
+  if(state == false) {
+    button.html('<strong>Animate <span class="glyphicon glyphicon-play"></span></strong>');
+    button.removeClass('btn-warning');
+    button.addClass('btn-success');
+  }
+  else {
+    button.html('<strong>Animate <span class="glyphicon glyphicon-pause"></span></strong>');
+    button.removeClass('btn-success');
+    button.addClass('btn-warning');
+  }
+}
 
 function animate() {
-  interval = setInterval(animateHelper,2000);
+  if(animated == true) {
+    clearInterval(interval);
+    setButton(false);
+    animated = false;
+    return;
+  }
+  else {
+    animated = true;
+    setButton(true);
+    interval = setInterval(animateHelper,2000);
+  }
 }
 
 var counter = 0;
@@ -179,10 +271,12 @@ function animateHelper() {
     changeYear(2010);
   }
   else if(counter == 5) {
-    changeYear(2013);
+    changeYear(2014);
   }
   else if(counter == 6) {
     clearInterval(interval);
+    setButton(false);
+    animated = false;
     counter = 0;
     
   }

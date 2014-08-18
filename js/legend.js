@@ -1,3 +1,6 @@
+var ids = ["BLK","AI","ASN","HSP","WHT","OTH"];
+var labels = ["Black","American Indian","Asian","Hispanic","White","Other"];
+
 var svgLegend;
 
 function drawLegend() {
@@ -5,13 +8,13 @@ function drawLegend() {
   var container_width = $('#container').width();
 
   function labelChooser() {
-  if (container_width < 700) {
-    return ids;
+    if (container_width < 700) {
+      return ids;
+    }
+    else {
+      return labels;
+    }
   }
-  else {
-    return labels;
-  }
-}
 
   if(svgLegend) {
     svgLegend.remove();
