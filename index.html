@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Analyzing racial data in University of California applicants and admitted students.">
+    <meta name="author" content="Sahil Chinoy">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Race in UC Admissions</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="./css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <link href="./css/rickshaw.css" rel="stylesheet">
+
+    <link href="./css/line.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/custom.css" rel="stylesheet">
+    <link href="./css/nv.d3.css" rel="stylesheet">
+
+  </head>
+
+  <body role="document">
+
+    <div id="container" class="container theme-showcase" role="main">
+
+      <h1>Race in UC Admissions</h1>
+
+      <p class="lead">In 2014, the University of California <a href="http://www.huffingtonpost.com/2014/04/21/latino-white-uc-admissions_n_5187943.html" target="_blank">made news</a> by accepting more Latino than white applicants, a first since the university's founding almost a century and a half ago.</p>
+      <p>Race is a common theme in dialogue about the university's application and admission process. Debate over affirmative action still seems fresh, in spite of California's <a href="http://en.wikipedia.org/wiki/California_Proposition_209" target="_blank">Prop. 209</a>, which banned consideration of race in the university's selection process. The passage of Prop. 209 in 1996 prompted a decrease in the number of black and Latino students admitted to the university, the legacy of which is still felt at the university's 10 campuses today.</p>
+      <p>Eighteen years later, we look back on almost 25 years of historical application and admissions data to determine how the makeup of the university's student body has changed, tracking the evolution of answers to fundamental questions: <a href="#applying">Who applies</a> to the University of California? <a href="#admitted">Who gets in</a>?</p>
+
+      <hr>
+
+      <h3 id="applying">Who's applying? <small>California demographics versus applicants and accepted students, 1990&mdash;2013</small></h3>
+      
+      <p class="lead">The racial breakdown of UC applicants and admitted students has changed dramatically since 1990, but it's largely kept pace with demographic shifts in California.</p>
+
+      <div class="btn-group">
+        <button id="yearDropdown" type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
+          <strong>2014</strong> <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li class="year active" id="y14"><a onClick="changeYear(2014)">2014</a></li>
+          <li class="divider"></li>
+          <li class="year" id="y10"><a onClick="changeYear(2010)">2010</a></li>
+          <li class="year" id="y05"><a onClick="changeYear(2005)">2005</a></li>
+          <li class="year" id="y00"><a onClick="changeYear(2000)">2000</a></li>
+          <li class="year" id="y95"><a onClick="changeYear(1995)">1995</a></li>
+          <li class="year" id="y90"><a onClick="changeYear(1990)">1990</a></li>
+        </ul>
+      </div>
+        <button id="animateBtn" class="btn btn-sm btn-success" onClick="animate()"><strong>Animate <span class="glyphicon glyphicon-play"></span></strong></button>
+        <br>
+        <br>
+        
+        <div class="btn-group">
+        <button id="grouped" class="btn btn-sm btn-info active" onClick="toGrouped()"><strong>Grouped</strong></button>
+        <button id="stacked" class="btn btn-sm btn-info" onClick="toStacked()"><strong>Stacked</strong></button>
+        </div>
+
+      <div id="barChart">
+       <svg></svg>
+      </div>
+
+      <div id="legend" style="clear:both;"></div>
+
+      </br>
+
+      
+      <p>In 1990, when white people made up 57 percent of California's population, 50 percent of the UC's applicants were white. In 2014, only 39 percent of California's residents are white, and, similarly, only 26 percent of the UC's applicants were.</p>
+      <p>Recently, more Hispanic students are applying and getting in. Though they made up 26 percent of California's population in 1990, they represented only 13 percent of UC applicants. In 2014, Hispanics made up 33 percent of the UC's applicants &mdash; more than any other group. Black applicants have made more modest gains; black people made up about 8 percent of the population in 1990 but less than 5 percent of applicants. In 2014, they mrepresented about 6 percent of the population and 6 percent of applicants.</p>
+      <p>Asian students have made up a disproportionately large section of the applicant pool since 1990, when they were already more than 25 percent of applicants. They have since grown to 31 percent of applicants. Asians are the only racial group who apply and get accepted in much higher numbers than their proportion of the population.</p>
+
+      <table class="table table-striped">
+      <tr>
+        <th>Year</th>
+        <th>% California</th>
+        <th>% UC applicants</th>
+        <th>Difference</th>
+      </tr>
+      <tr>
+        <td><strong>1990</strong></td>
+        <td>9.99%</td>
+        <td>26.01%</td>
+        <td class="warning">+16.02%</td>
+      </tr>
+      <tr>
+        <td><strong>2000</strong></td>
+        <td>11.04%</td>
+        <td>32.33%</td>
+        <td class="warning">+21.29%</td>
+      </tr>
+      <tr>
+        <td><strong>2010</strong></td>
+        <td>12.96%</td>
+        <td>32.47%</td>
+        <td class="warning">+19.51%</td>
+      </tr>
+      </table>
+
+      <hr>
+
+      <h3 id="admitted">Who's getting in? <small>Percentage of UC applicants minus percentage of accepted students, by race</small></h3>
+    </br>
+
+      <div id="line_container">
+        <div id="y_axis"></div>
+        <div id="line"></div>
+      </div>
+
+      <hr>
+
+      
+
+<p class="small disabled">Made by <a href="http://about.me/sahil.chinoy">Sahil Chinoy</a></p>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="./js/rickshaw.min.js"></script>
+    <script src="./js/d3.tip.js"></script>
+
+    <script src="./js/nv.d3.js"></script>
+    <script src="./js/barData.js"></script>
+    <script src="./js/barChart.js"></script>
+
+    <script src="./data/asian.js"></script>
+    <script src="./data/ai.js"></script>
+    <script src="./data/black.js"></script>
+    <script src="./data/hispanic.js"></script>
+    <script src="./data/white.js"></script>
+    
+    <script src="./js/main.js"></script>
+    <script src="./js/legend.js"></script>
+    <script src="./js/line.js"></script>
+
+
+
+  </body>
+
+
+</html>
