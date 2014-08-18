@@ -75,10 +75,10 @@
       </br>
 
       
-      <p>In 1990, when white people made up 57 percent of California's population, 50 percent of the UC's applicants were white. In 2014, only 39 percent of California's residents are white, and, similarly, only 26 percent of the UC's applicants were.</p>
+      <p>In 1990, when white people made up 57 percent of California's population, about half of the UC's applicants were white. In 2014, only 39 percent of California's residents are white, and, similarly, only about 25 percent of the UC's applicants were.</p>
       <p>Recently, more Hispanic students are applying and getting in. Though they made up 26 percent of California's population in 1990, they represented only 13 percent of UC applicants. In 2014, Hispanics made up 33 percent of the UC's applicants &mdash; more than any other group. Black applicants have made more modest gains: They made up about 8 percent of the population in 1990 but less than 5 percent of applicants, while in 2014, they represented about 6 percent of the population and 6 percent of applicants.</p>
-      <p>Asian students have made up a disproportionately large section of the applicant pool since 1990, when they were already more than 25 percent of applicants. They have since grown to 31 percent of applicants. Asians are the only racial group who apply and get accepted in much higher numbers than their proportion of the population.</p>
-      <p></p>
+      <p>Asian students have made up a disproportionately large section of the applicant pool since 1990, when they were already more than 25 percent of applicants. They have since grown to over 30 percent of applicants.</p>
+      <p>According to state graduation data, Asian students made up almost 18 percent more of UC applicants than high school graduates in 2009, the only racial group that represented more of the applicant pool than of high school graduates. Hispanic students, in particular, made up far less of the applicants than graduates &mdash; five years later, however, this difference is less dramatic.</p>
 
       <table class="table table-hover table-responsive">
           <tr>
@@ -118,20 +118,29 @@
             <td>-0.06%</td>
           </tr>
         </table>
+      
+      <p>Much of the change in the breakdown of UC applicants, then, has occurred as Hispanic students made up more of each year's high school graduates and applied to the university in greater numbers. White students have seen the opposite trend, while Asians have applied in consistently high proportions. </p>
 
       <hr>
 
       <h3 id="admitted">Who's getting in? <small>Percentage of UC applicants minus percentage of accepted students, by race</small></h3>
+      <p class="lead">Asian students are accepted at greater rates than other races, particularly Hispanic and black students, a trend which has become more pronounced in the last few years.</p>
     </br>
 
-      <div id="lineChart">
+    <div class="btn-group">
+        <button id="absolute" class="btn btn-sm btn-info active" onClick="toAbsolute()"><strong>Absolute</strong></button>
+        <button id="normalized" class="btn btn-sm btn-info" onClick="toNormalized()"><strong>Difference from Total</strong></button>
+        </div>
+    
+    <div id="admissionsChart">
           <svg></svg>
     </div>
 
       <hr>
     
-    <h3 id="sources">Sources</h3>
-    <a href="http://nces.ed.gov/programs/digest/d11/tables/dt11_114.asp" target="_blank">High school graduates by race, 2008-09</a> from the National Center for Education Statistics
+    <h3 id="sources">Sources & notes</h3>
+    <p><a href="http://nces.ed.gov/programs/digest/d11/tables/dt11_114.asp" target="_blank">High school graduates by race, 2008-09</a> from the National Center for Education Statistics</p>
+    <p><a href="http://www.ucop.edu/news/studstaff.html" target=_blank>Applicants and admitted students by race, 1989-2014</a> from the University of California</p>
     <hr>
 
       
@@ -151,18 +160,13 @@
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="./js/nv.d3.js"></script>
 
-    <script src="./data/asian.js"></script>
-    <script src="./data/ai.js"></script>
-    <script src="./data/black.js"></script>
-    <script src="./data/hispanic.js"></script>
-    <script src="./data/white.js"></script>
     <script src="./data/barData.js"></script>
-    <script src="./data/lineData.js"></script>
+    <script src="./data/admissionsData.js"></script>
     
     <script src="./js/main.js"></script>
     <script src="./js/legend.js"></script>
     <script src="./js/bar.js"></script>
-    <script src="./js/line.js"></script>
+    <script src="./js/admissions.js"></script>
 
 
   </body>

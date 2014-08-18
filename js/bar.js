@@ -15,7 +15,7 @@ function tooltipContent(series,type,data) {
         ending = 'of UC applicants accepted for ';
     }
     
-    return '<strong>' + series + '</strong> <span class="badge">' + data + '</span></br><small> ' + ending + year + '</small>';
+    return  series + '&nbsp; <strong>' + data + '</strong></br><small> ' + ending + year + '</small>';
 }
 
 nv.addGraph(function() {
@@ -25,7 +25,6 @@ nv.addGraph(function() {
         .tooltipContent(tooltipContent)
         .transitionDuration(1000)
         .showLegend(false);
-    
     
     chart.yAxis
         .axisLabel('Percent')
