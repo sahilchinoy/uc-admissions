@@ -18,7 +18,7 @@ nv.addGraph(function() {
 
   admissionsChart.yAxis     //Chart y-axis settings
       //.axisLabel('Voltage (v)')
-      .tickFormat( function(d) { return (d * 100).toFixed(2) + '%' });
+      .tickFormat( function(d) { return (d * 100).toFixed(1) + '%' });
 
   d3.select('#admissionsChart svg')
       .datum(admissions)

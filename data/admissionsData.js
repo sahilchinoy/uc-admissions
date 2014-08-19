@@ -530,7 +530,7 @@ var admissions = [
         ]
     },
     {
-        key: "Total",
+        key: "Overall",
         color: "rgb(0,0,0)",
         values: [
           {
@@ -1169,7 +1169,7 @@ var admissionsNormalized = [
         ]
     },
     {
-        key: "Total",
+        key: "Overall",
         color: "rgb(0,0,0)",
         values: [
           {
