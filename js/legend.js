@@ -62,4 +62,3 @@ legend.selectAll('g').data(labels)
 }
 
 drawLegend();
-window.onresize = drawLegend;

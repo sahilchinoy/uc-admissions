@@ -31,14 +31,14 @@ svgLegend2 = d3.select("#legend2")
   .attr("width", container_width)
   .attr("height", 40);
 
-var legend = svgLegend2.append("g")
+var legend2 = svgLegend2.append("g")
   .attr("class", "legend")
   .attr("x", 0)
   .attr("y", 0)
   .attr("height", 40)
   .attr("width", container_width - 110);
 
-legend.selectAll('g').data(labels)
+legend2.selectAll('g').data(labels)
   .enter()
   .append('g')
   .each(function(d, i) {
@@ -65,5 +65,10 @@ legend.selectAll('g').data(labels)
 
 }
 
+function drawLegends() {
+    drawLegend();
+    drawLegend2();
+}
+
 drawLegend2();
-window.onresize = drawLegend2;
+window.onresize = drawLegends;
