@@ -1,7 +1,7 @@
 var admissions = [
     {
         key: "White",
-        color: "rgb(128,177,211)",
+        color: colors[0],
         values: [
           {
             "x":1990,
@@ -107,7 +107,7 @@ var admissions = [
     },
     {
         key: "Hispanic",
-        color: "rgb(251,128,114)",
+        color: colors[1],
         values: [
           {
             "x":1990,
@@ -213,7 +213,7 @@ var admissions = [
     },
     {
         key: "Asian",
-        color: "rgb(190,186,218)",
+        color: colors[2],
         values: [
           {
             "x":1990,
@@ -319,7 +319,7 @@ var admissions = [
     },
     {
         key: "Black",
-        color: "rgb(141,211,199)",
+        color: colors[3],
         values: [
           {
             "x":1990,
@@ -425,7 +425,7 @@ var admissions = [
     },
     {
         key: "American Indian",
-        color: "rgb(255,255,179)",
+        color: colors[4],
         values: [
           {
             "x":1990,
@@ -640,7 +640,7 @@ var admissions = [
 var admissionsNormalized = [
     {
         key: "White",
-        color: "rgb(128,177,211)",
+        color: colors[0],
         values: [
           {
             "x":1990,
@@ -746,7 +746,7 @@ var admissionsNormalized = [
     },
     {
         key: "Hispanic",
-        color: "rgb(251,128,114)",
+        color: colors[1],
         values: [
           {
             "x":1990,
@@ -852,7 +852,7 @@ var admissionsNormalized = [
     },
     {
         key: "Asian",
-        color: "rgb(190,186,218)",
+        color: colors[2],
         values: [
           {
             "x":1990,
@@ -958,7 +958,7 @@ var admissionsNormalized = [
     },
     {
         key: "Black",
-        color: "rgb(141,211,199)",
+        color: colors[3],
         values: [
           {
             "x":1990,
@@ -1064,7 +1064,7 @@ var admissionsNormalized = [
     },
     {
         key: "American Indian",
-        color: "rgb(255,255,179)",
+        color: colors[4],
         values: [
           {
             "x":1990,

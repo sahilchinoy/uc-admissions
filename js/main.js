@@ -3,4 +3,4 @@ var window_height = $(window).height();
 
 var container_width = $('#container').width();
 
-var color = ['rgb(128,177,211)','rgb(251,128,114)','rgb(190,186,218)','rgb(141,211,199)','rgb(255,255,179)','rgb(253,180,98)'];
+var colors =['rgb(228,26,28)','rgb(55,126,184)','rgb(77,175,74)','rgb(152,78,163)','rgb(255,127,0)','rgb(166,86,40)']

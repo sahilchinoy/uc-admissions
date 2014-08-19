@@ -15,7 +15,7 @@ function tooltipContent(series,type,data) {
         ending = 'of UC applicants accepted for ';
     }
     
-    return  series + '&nbsp; <strong>' + data + '</strong></br><small> ' + ending + year + '</small>';
+    return  series + '&nbsp;<strong>' + data + '</strong></br><small> ' + ending + year + '</small>';
 }
 
 nv.addGraph(function() {
@@ -30,7 +30,7 @@ nv.addGraph(function() {
         .axisLabel('Percent')
         .tickFormat(function(d) { return d.toFixed(1) + '%' } );
     
-    //chart.multibar.stacked(true); // default to stacked
+    chart.multibar.stacked(true); // default to stacked
     chart.showControls(false); // don't show controls
 
     d3.select('#barChart svg')
@@ -58,7 +58,7 @@ function changeYear(newYear) {
         var newData = barData.y10;
     }
     else if(year == 2005) {
-        $('#y10').addClass('active');
+        $('#y05').addClass('active');
         var newData = barData.y05;
     }
     else if(year == 2000) {

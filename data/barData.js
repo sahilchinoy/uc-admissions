@@ -1,8 +1,10 @@
+
+
 var barData = {
     "y14" : [ 
         {
             key: "White",
-            color: "rgb(128,177,211)",
+            color: colors[0],
             values: [
             {
                 "label" : "California demographics",
@@ -21,7 +23,7 @@ var barData = {
 
         {
             key: "Hispanic",
-            color: "rgb(251,128,114)",
+            color: colors[1],
             values: [
             {
                 "label" : "California demographics",
@@ -39,7 +41,7 @@ var barData = {
         },
         {
             key: "Asian",
-            color: "rgb(190,186,218)",
+            color: colors[2],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -57,7 +59,7 @@ var barData = {
         },
         {
             key: "Black",
-            color: "rgb(141,211,199)",
+            color: colors[3],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -75,7 +77,7 @@ var barData = {
         },
         {
             key: "American Indian",
-            color: "rgb(255,255,179)",
+            color: colors[4],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -93,7 +95,7 @@ var barData = {
         },
         {
             key: "Other",
-            color: "rgb(253,180,98)",
+            color: colors[5],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -114,7 +116,7 @@ var barData = {
     "y10" : [ 
         {
             key: "White",
-            color: "rgb(128,177,211)",
+            color: colors[0],
             values: [
             {
                 "label" : "California demographics",
@@ -133,7 +135,7 @@ var barData = {
 
         {
             key: "Hispanic",
-            color: "rgb(251,128,114)",
+            color: colors[1],
             values: [
             {
                 "label" : "California demographics",
@@ -151,7 +153,7 @@ var barData = {
         },
         {
             key: "Asian",
-            color: "rgb(190,186,218)",
+            color: colors[2],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -169,7 +171,7 @@ var barData = {
         },
         {
             key: "Black",
-            color: "rgb(141,211,199)",
+            color: colors[3],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -187,7 +189,7 @@ var barData = {
         },
         {
             key: "American Indian",
-            color: "rgb(255,255,179)",
+            color: colors[4],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -205,7 +207,7 @@ var barData = {
         },
         {
             key: "Other",
-            color: "rgb(253,180,98)",
+            color: colors[5],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -227,7 +229,7 @@ var barData = {
     "y05" : [ 
         {
             key: "White",
-            color: "rgb(128,177,211)",
+            color: colors[0],
             values: [
             {
                 "label" : "California demographics",
@@ -246,7 +248,7 @@ var barData = {
 
         {
             key: "Hispanic",
-            color: "rgb(251,128,114)",
+            color: colors[1],
             values: [
             {
                 "label" : "California demographics",
@@ -264,7 +266,7 @@ var barData = {
         },
         {
             key: "Asian",
-            color: "rgb(190,186,218)",
+            color: colors[2],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -282,7 +284,7 @@ var barData = {
         },
         {
             key: "Black",
-            color: "rgb(141,211,199)",
+            color: colors[3],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -300,7 +302,7 @@ var barData = {
         },
         {
             key: "American Indian",
-            color: "rgb(255,255,179)",
+            color: colors[4],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -318,7 +320,7 @@ var barData = {
         },
         {
             key: "Other",
-            color: "rgb(253,180,98)",
+            color: colors[5],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -340,7 +342,7 @@ var barData = {
     "y00" : [ 
         {
             key: "White",
-            color: "rgb(128,177,211)",
+            color: colors[0],
             values: [
             {
                 "label" : "California demographics",
@@ -359,7 +361,7 @@ var barData = {
 
         {
             key: "Hispanic",
-            color: "rgb(251,128,114)",
+            color: colors[1],
             values: [
             {
                 "label" : "California demographics",
@@ -377,7 +379,7 @@ var barData = {
         },
         {
             key: "Asian",
-            color: "rgb(190,186,218)",
+            color: colors[2],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -395,7 +397,7 @@ var barData = {
         },
         {
             key: "Black",
-            color: "rgb(141,211,199)",
+            color: colors[3],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -413,7 +415,7 @@ var barData = {
         },
         {
             key: "American Indian",
-            color: "rgb(255,255,179)",
+            color: colors[4],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -431,7 +433,7 @@ var barData = {
         },
         {
             key: "Other",
-            color: "rgb(253,180,98)",
+            color: colors[5],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -453,7 +455,7 @@ var barData = {
     "y95" : [ 
         {
             key: "White",
-            color: "rgb(128,177,211)",
+            color: colors[0],
             values: [
             {
                 "label" : "California demographics",
@@ -472,7 +474,7 @@ var barData = {
 
         {
             key: "Hispanic",
-            color: "rgb(251,128,114)",
+            color: colors[1],
             values: [
             {
                 "label" : "California demographics",
@@ -490,7 +492,7 @@ var barData = {
         },
         {
             key: "Asian",
-            color: "rgb(190,186,218)",
+            color: colors[2],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -508,7 +510,7 @@ var barData = {
         },
         {
             key: "Black",
-            color: "rgb(141,211,199)",
+            color: colors[3],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -526,7 +528,7 @@ var barData = {
         },
         {
             key: "American Indian",
-            color: "rgb(255,255,179)",
+            color: colors[4],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -544,7 +546,7 @@ var barData = {
         },
         {
             key: "Other",
-            color: "rgb(253,180,98)",
+            color: colors[5],
             values: [
             { 
                 "label" : "California demographics" ,
@@ -565,11 +567,11 @@ var barData = {
     "y90" : [ 
         {
             key: "White",
-            color: "rgb(128,177,211)",
+            color: colors[0],
             values: [
             {
                 "label" : "California demographics",
-                "value" : 57.06
+                "value" : 57.22
             } , 
             { 
                 "label" : "UC applicants" , 
@@ -584,11 +586,11 @@ var barData = {
 
         {
             key: "Hispanic",
-            color: "rgb(251,128,114)",
+            color: colors[1],
             values: [
             {
                 "label" : "California demographics",
-                "value" : 25.96
+                "value" : 25.83
             } , 
             { 
                 "label" : "UC applicants" , 
@@ -602,11 +604,11 @@ var barData = {
         },
         {
             key: "Asian",
-            color: "rgb(190,186,218)",
+            color: colors[2],
             values: [
             { 
                 "label" : "California demographics" ,
-                "value" : 9.99
+                "value" : 9.11
             } , 
             { 
                 "label" : "UC applicants" , 
@@ -620,11 +622,11 @@ var barData = {
         },
         {
             key: "Black",
-            color: "rgb(141,211,199)",
+            color: colors[3],
             values: [
             { 
                 "label" : "California demographics" ,
-                "value" : 7.75
+                "value" : 7.03
             } , 
             { 
                 "label" : "UC applicants" , 
@@ -638,11 +640,11 @@ var barData = {
         },
         {
             key: "American Indian",
-            color: "rgb(255,255,179)",
+            color: colors[4],
             values: [
             { 
                 "label" : "California demographics" ,
-                "value" : 0.96
+                "value" : 0.62
             } , 
             { 
                 "label" : "UC applicants" , 
@@ -656,11 +658,11 @@ var barData = {
         },
         {
             key: "Other",
-            color: "rgb(253,180,98)",
+            color: colors[5],
             values: [
             { 
                 "label" : "California demographics" ,
-                "value" : 0.00
+                "value" : 0.19
             } , 
             { 
                 "label" : "UC applicants" , 

@@ -47,7 +47,7 @@ legend.selectAll('g').data(labels)
       .attr("height", 20)
       .attr("stroke","white")
       .attr("stroke-width", 1)
-      .style("fill", color[i]);
+      .style("fill", colors[i]);
     
     g.append("text")
       .attr("dy", 15)

@@ -37,11 +37,20 @@
 
       <hr>
 
-      <h3 id="applying">Who's applying? <small>California demographics versus applicants and accepted students, 1990&mdash;2013</small></h3>
+      <h3 id="applying">Who's applying? <small>California demographics versus applicants and accepted students, 1990&mdash;2014</small></h3>
       
       <p class="lead">The racial breakdown of UC applicants and admitted students has changed dramatically since 1990, but it's largely kept pace with demographic shifts in California.</p>
 
-      <div class="btn-group">
+        <div class="btn-group">
+        <button id="y14" class="year btn btn-sm btn-default active" onClick="changeYear(2014)"><strong>2014</strong></button>
+        <button id="y10" class="year btn btn-sm btn-default" onClick="changeYear(2010)"><strong>2010</strong></button>
+        <button id="y05" class="year btn btn-sm btn-default" onClick="changeYear(2005)"><strong>2005</strong></button>
+        <button id="y00" class="year btn btn-sm btn-default" onClick="changeYear(2000)"><strong>2000</strong></button>
+        <button id="y95" class="year btn btn-sm btn-default" onClick="changeYear(1995)"><strong>1995</strong></button>
+        <button id="y90" class="year btn btn-sm btn-default" onClick="changeYear(1990)"><strong>1990</strong></button>
+        </div>
+        
+      <!--<div class="btn-group">
         <button id="yearDropdown" type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
           <strong>2014</strong> <span class="caret"></span>
         </button>
@@ -54,14 +63,14 @@
           <li class="year" id="y95"><a onClick="changeYear(1995)">1995</a></li>
           <li class="year" id="y90"><a onClick="changeYear(1990)">1990</a></li>
         </ul>
-      </div>
+      </div>-->
         <button id="animateBtn" class="btn btn-sm btn-success" onClick="animate()"><strong>Animate <span class="glyphicon glyphicon-play"></span></strong></button>
         <br>
         <br>
         
         <div class="btn-group">
-        <button id="grouped" class="btn btn-sm btn-info active" onClick="toGrouped()"><strong>Grouped</strong></button>
-        <button id="stacked" class="btn btn-sm btn-info" onClick="toStacked()"><strong>Stacked</strong></button>
+        <button id="stacked" class="btn btn-sm btn-info active" onClick="toStacked()"><strong>Stacked</strong></button>
+        <button id="grouped" class="btn btn-sm btn-info" onClick="toGrouped()"><strong>Grouped</strong></button>
         </div>
 
       <div id="barChart">
@@ -76,7 +85,7 @@
 
       
       <p>In 1990, when white people made up 57 percent of California's population, about half of the UC's applicants were white. In 2014, only 39 percent of California's residents are white, and, similarly, only about 25 percent of the UC's applicants were.</p>
-      <p>Recently, more Hispanic students are applying and getting in. Though they made up 26 percent of California's population in 1990, they represented only 13 percent of UC applicants. In 2014, Hispanics made up 33 percent of the UC's applicants &mdash; more than any other group. Black applicants have made more modest gains: They made up about 8 percent of the population in 1990 but less than 5 percent of applicants, while in 2014, they represented about 6 percent of the population and 6 percent of applicants.</p>
+      <p>Recently, more Hispanic students are applying and getting in. Though they made up 26 percent of California's population in 1990, they represented only 13 percent of UC applicants. In 2014, Hispanics made up 33 percent of the UC's applicants &mdash; more than any other group. Black applicants have made more modest gains: They made up about 7 percent of the population in 1990 but less than 5 percent of applicants, while in 2014, they represented about 6 percent of the population and 6 percent of applicants.</p>
       <p>Asian students have made up a disproportionately large section of the applicant pool since 1990, when they were already more than 25 percent of applicants. They have since grown to over 30 percent of applicants.</p>
       <p>According to state graduation data, Asian students made up almost 18 percent more of UC applicants than high school graduates in 2009, the only racial group that represented more of the applicant pool than of high school graduates. Hispanic students, in particular, made up far less of the applicants than graduates &mdash; five years later, however, this difference is less dramatic.</p>
 
@@ -123,7 +132,7 @@
 
       <hr>
 
-      <h3 id="admitted">Who's getting in? <small>Percentage of UC applicants minus percentage of accepted students, by race</small></h3>
+      <h3 id="admitted">Who's getting in? <small>Admission rate by race, 1990&mdash;2014</small></h3>
       <p class="lead">Asian students are accepted at greater rates than other races, particularly Hispanic and black students, a trend which has become more pronounced in the last few years.</p>
     </br>
 
@@ -138,14 +147,26 @@
 
       <hr>
     
-    <h3 id="sources">Sources & notes</h3>
-    <p><a href="http://nces.ed.gov/programs/digest/d11/tables/dt11_114.asp" target="_blank">High school graduates by race, 2008-09</a> from the National Center for Education Statistics</p>
-    <p><a href="http://www.ucop.edu/news/studstaff.html" target=_blank>Applicants and admitted students by race, 1989-2014</a> from the University of California</p>
+    <h3 id="sources">Sources &amp; notes</h3>
+    
+    <dl>
+        <dt><a href="http://www.ucop.edu/news/studstaff.html" target=_blank>Applicants and admitted students by race, 1989-2014</a></dt>
+        <dd><small><p>from the University of California</p>
+            <p>The UC has used different racial and ethnic categories since 1990. For this analysis, Chicano and Latino were counted as Hispanic; Asian American, Filipino American and East Indian/Pakistani were counted as Asian; African American was counted as Black; and Other and Unknown were counted as Other.</p></small></dd>
+        
+        <dt><a href="http://nces.ed.gov/programs/digest/d11/tables/dt11_114.asp" target="_blank">High school graduates by race, 2008-09</a></dt>
+        <dd><small><p>from the National Center for Education Statistics</p><p>Students identifying as two or more races were counted as Other. The racial breakdown of high school graduates would be a better comparison than the demographics of California, but this data has historically not been collected. Still, the makeup of high school graduates matches well with the makeup of California as a whole.</p></small></dd>
+        
+        <dt><a href="http://www.census.gov/population/www/documentation/twps0056/tabE-01.pdf" target="_blank">California racial composition, 1990</a> and <a href="http://www.census.gov/popest/data/intercensal/index.html" target="_blank"> intercensal estimates, 2000s</a></dt>
+        <dd><small>from the US Census Bureau</small></dd>
+        
+    </dl>
+    
     <hr>
 
       
 
-<p class="small disabled">Made by <a href="http://about.me/sahil.chinoy">Sahil Chinoy</a></p>
+<p class="">Made by <a href="http://about.me/sahil.chinoy">Sahil Chinoy</a></p>
 
     </div> <!-- /container -->
 
@@ -160,10 +181,12 @@
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="./js/nv.d3.js"></script>
 
+    <script src="./js/main.js"></script>
+
     <script src="./data/barData.js"></script>
     <script src="./data/admissionsData.js"></script>
     
-    <script src="./js/main.js"></script>
+    
     <script src="./js/legend.js"></script>
     <script src="./js/bar.js"></script>
     <script src="./js/admissions.js"></script>
