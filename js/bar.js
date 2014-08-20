@@ -139,30 +139,26 @@ function animate() {
 var counter = 0;
 
 function animateHelper() {
-  if(counter == 0) {
+  if(year == 2014) {
     changeYear(1990);
   }
-  else if(counter == 1) {
+  else if(year == 1990) {
     changeYear(1995);
   }
-  else if(counter == 2) {
+  else if(year == 1995) {
     changeYear(2000);
   }
-  else if(counter == 3) {
+  else if(year == 2000) {
     changeYear(2005);
   }
-  else if(counter == 4) {
+  else if(year == 2005) {
     changeYear(2010);
   }
-  else if(counter == 5) {
+  else if(year == 2010) {
     changeYear(2014);
-  }
-  else if(counter == 6) {
     clearInterval(interval);
     setButton(false);
     animated = false;
-    counter = 0;
-    
   }
   counter += 1;
 }
