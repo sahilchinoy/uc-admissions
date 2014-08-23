@@ -23,7 +23,7 @@ nv.addGraph(function() {
         .x(function(d) { return d.label })
         .y(function(d) { return d.value })
         .tooltipContent(tooltipContent)
-        .transitionDuration(1000)
+        .transitionDuration(500)
         .showLegend(false);
     
     chart.yAxis
@@ -35,7 +35,7 @@ nv.addGraph(function() {
 
     d3.select('#barChart svg')
         .datum(barData.y14)
-      .transition().duration(5000).call(chart);
+      .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
     
@@ -122,7 +122,8 @@ function setButton(state) {
   }
 }
 
-function animate() {
+function animate_bar() {
+    console.log('animating');
   if(animated == true) {
     clearInterval(interval);
     setButton(false);
