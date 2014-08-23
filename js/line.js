@@ -10,7 +10,7 @@ nv.addGraph(function() {
                 .showLegend(false)
                 .showYAxis(true)        //Show the y-axis
                 .showXAxis(true)        //Show the x-axis
-                .interpolate("basis")
+                //.interpolate("basis")
   ;
 
   admissionsChart.xAxis     //Chart x-axis settings

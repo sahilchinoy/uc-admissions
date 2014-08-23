@@ -23,7 +23,7 @@ nv.addGraph(function() {
         .x(function(d) { return d.label })
         .y(function(d) { return d.value })
         .tooltipContent(tooltipContent)
-        .transitionDuration(500)
+        .transitionDuration(1000)
         .showLegend(false);
     
     chart.yAxis
@@ -76,7 +76,7 @@ function changeYear(newYear) {
     
     d3.select('#barChart svg')
         .datum(newData)
-        .transition().duration(2000).call(chart);
+        .transition().duration(750).call(chart);
 }
 
 function toStacked() {
